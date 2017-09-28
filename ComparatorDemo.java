@@ -24,21 +24,19 @@ public class ComparatorDemo {
         print(addresses);
 
         // !! - Write an anonymous class to sort by state (alphabetically)
-        Collections.sort(addresses,    /* anonymous class here */
-                new Comparator<Address>() {
-                    @Override
-                    public int compare(Address o1, Address o2) {
-                        return o1.getState().compareTo(o2.getState());
-                    }
-                });
+        Collections.sort(addresses, new Comparator<Address>() {
+            @Override
+            public int compare(Address o1, Address o2) {
+                return o1.getState().compareTo(o2.getState());
+            }
+        });
 
         System.out.println("\nAfter sorting by state");
         print(addresses);
 
         // !! - Write a lambda to sort by city alphabetically
-        Collections.sort(addresses, addresses.sort((o1, o2) -> {
-            return o1.getState().compareTo(o2.getCity());
-        });
+        Collections.sort(addresses, (a1, a2) -> a1.getCity().compareTo(a2.getCity()));
+        //I wrote a lambda but they've put something weird here. Is it supposed to be in the anon class?
 
 
         System.out.println("\nAfter sorting by city");
